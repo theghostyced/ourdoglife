@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" elevation="0" dark>
+      <v-container>
+        <div class="d-flex align-center justify-space-between">
+          <div class="d-flex align-center" @click="$router.push(`/`)">
+            <v-img
+              alt="Vuetify Logo"
+              class="shrink mr-2"
+              contain
+              src="https://dog.ceo/img/dog-api-logo.svg"
+              transition="scale-transition"
+              width="40"
+            />
+          </div>
+          <v-spacer></v-spacer>
+          <v-btn elevation="0" to="/search">
+            <span class="mr-2">Search</span>
+            <v-icon>mdi-magnify</v-icon>
+          </v-btn>
+        </div>
+      </v-container>
+    </v-app-bar>
+
+    <v-main>
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
