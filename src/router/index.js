@@ -15,6 +15,11 @@ const routes = [
     name: "SingleDog",
     component: () => import("../views/SingleDogView.vue"),
   },
+  {
+    path: "/search",
+    name: "SearchDog",
+    component: () => import("../views/SearchView.vue"),
+  },
 ];
 
 const router = new VueRouter({
