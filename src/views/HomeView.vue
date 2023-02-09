@@ -3,7 +3,6 @@
     <v-container>
       <v-row v-if="!loading">
         <v-col
-          @click="$router.push(`/single-dog/${dog.name}`)"
           v-for="(dog, i) in dogs"
           :key="i"
           class="d-flex child-flex"
@@ -12,19 +11,21 @@
           sm="6"
           style="cursor: pointer"
         >
-          <v-card>
-            <v-img
-              :src="`${dog.img}`"
-              :lazy-src="`${dog.img}`"
-              aspect-ratio="1"
-              class="grey lighten-2"
-            >
-              <template v-slot:placeholder>
-                <Loader />
-              </template>
-            </v-img>
-            <v-card-title class="text-h6 text-capitalize"> {{ dog.name }} </v-card-title>
-          </v-card>
+          <router-link :to="`/single-dog/${dog.name}`">
+            <v-card>
+              <v-img
+                :src="`${dog.img}`"
+                :lazy-src="`${dog.img}`"
+                aspect-ratio="1"
+                class="grey lighten-2"
+              >
+                <template v-slot:placeholder>
+                  <Loader />
+                </template>
+              </v-img>
+              <v-card-title class="text-h6 text-capitalize"> {{ dog.name }} </v-card-title>
+            </v-card>
+          </router-link>
         </v-col>
       </v-row>
       <v-row v-else>
