@@ -10,6 +10,11 @@ const routes = [
     name: "home",
     component: HomeView,
   },
+  {
+    path: "/single-dog/:id",
+    name: "SingleDog",
+    component: () => import("../views/SingleDogView.vue"),
+  },
 ];
 
 const router = new VueRouter({
